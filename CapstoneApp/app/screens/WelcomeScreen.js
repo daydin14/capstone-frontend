@@ -27,7 +27,7 @@ function WelcomeScreen(props) {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: "yellow",
+    backgroundColor: "honeydew",
     flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
 
   signupButton: {
-    backgroundColor: "dodgerblue",
+    backgroundColor: "yellow",
     width: "100%",
     height: 70,
   },

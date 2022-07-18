@@ -15,11 +15,13 @@ import {
 } from "@react-native-community/hooks";
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
+import DevSkills from "./app/screens/DevSkills";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <WelcomeScreen />
+      {/* <WelcomeScreen /> */}
+      <DevSkills />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
@@ -28,7 +30,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "olive",
+    backgroundColor: "lightyellow",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
