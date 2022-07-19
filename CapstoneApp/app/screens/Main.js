@@ -14,6 +14,12 @@ export default function Main(props) {
     ]);
   }
 
+  function deleteSkillHander(id) {
+    setSkill((currentSkill) => {
+      return currentSkill.filter((skill) => skill.id !== id);
+    });
+  }
+
   return (
     <View style={styles.appContainer}>
       <SkillInput onAddSkill={addSkillHandler} />
@@ -21,7 +27,13 @@ export default function Main(props) {
         <FlatList
           data={skills}
           renderItem={(itemData) => {
-            return <SkillItem text={itemData.item.text} />;
+            return (
+              <SkillItem
+                text={itemData.item.text}
+                id={itemData.item.id}
+                onDeleteSkill={deleteSkillHander}
+              />
+            );
           }}
           keyExtractor={(item, index) => {
             return item.id;

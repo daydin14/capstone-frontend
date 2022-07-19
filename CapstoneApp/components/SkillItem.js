@@ -1,10 +1,12 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Pressable } from "react-native";
 
 function SkillItem(props) {
   return (
-    <View style={styles.skill}>
-      <Text style={styles.skillText}>{props.text}</Text>
-    </View>
+    <Pressable onPress={props.onDeleteSkill.bind(this, props.id)}>
+      <View style={styles.skill}>
+        <Text style={styles.skillText}>{props.text}</Text>
+      </View>
+    </Pressable>
   );
 }
 
