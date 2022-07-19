@@ -16,12 +16,14 @@ import {
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import DevSkills from "./app/screens/DevSkills";
+import Main from "./app/screens/Main";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       {/* <WelcomeScreen /> */}
-      <DevSkills />
+      {/* <DevSkills /> */}
+      <Main />
       <StatusBar style="auto" />
     </SafeAreaView>
   );
