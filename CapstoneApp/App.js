@@ -1,13 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  Dimensions,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Platform,
-  SafeAreaView,
-} from "react-native";
+import { Dimensions, StyleSheet, Platform, SafeAreaView } from "react-native";
 
 import {
   useDimensions,
