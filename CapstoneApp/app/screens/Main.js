@@ -1,17 +1,27 @@
-import { StyleSheet, View, FlatList } from "react-native";
+import { StyleSheet, View, FlatList, Button } from "react-native";
 import { useState } from "react";
 
 import SkillItem from "../../components/SkillItem";
 import SkillInput from "../../components/SkillInput";
 
 export default function Main(props) {
+  const [modalIsVisible, setModalIsVisible] = useState(false);
   const [skills, setSkill] = useState([]);
+
+  function startAddSkillHandler() {
+    setModalIsVisible(true);
+  }
+
+  function endAddSkillHandler() {
+    setModalIsVisible(false);
+  }
 
   function addSkillHandler(state) {
     setSkill((currentSkill) => [
       ...currentSkill,
       { text: state, id: Math.random().toString() },
     ]);
+    endAddSkillHandler();
   }
 
   function deleteSkillHander(id) {
@@ -22,7 +32,16 @@ export default function Main(props) {
 
   return (
     <View style={styles.appContainer}>
-      <SkillInput onAddSkill={addSkillHandler} />
+      <Button
+        title="Add New Skill"
+        color="skyblue"
+        onPress={startAddSkillHandler}
+      />
+      <SkillInput
+        visible={modalIsVisible}
+        onAddSkill={addSkillHandler}
+        onCancel={endAddSkillHandler}
+      />
       <View style={styles.skills}>
         <FlatList
           data={skills}

@@ -1,4 +1,4 @@
-import { StyleSheet, View, TextInput, Button } from "react-native";
+import { StyleSheet, View, TextInput, Button, Modal } from "react-native";
 import { useState } from "react";
 
 function SkillInput(props) {
@@ -14,34 +14,51 @@ function SkillInput(props) {
   }
 
   return (
-    <View style={styles.input}>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Add New Skill!"
-        onChangeText={skillInputHandler}
-        value={state}
-      />
-      <Button title="Add Skill" onPress={addSkillHandler} />
-    </View>
+    <Modal visible={props.visible} animationType="slide">
+      <View style={styles.input}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Add New Skill!"
+          onChangeText={skillInputHandler}
+          value={state}
+        />
+        <View style={styles.buttons}>
+          <View style={styles.button}>
+            <Button title="Add Skill" onPress={addSkillHandler} />
+          </View>
+          <View style={styles.button}>
+            <Button title="Cancel" onPress={props.onCancel} />
+          </View>
+        </View>
+      </View>
+    </Modal>
   );
 }
 
 const styles = StyleSheet.create({
   input: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
-    marginBottom: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: "skyblue",
+    padding: 16,
+    backgroundColor: "lightyellow",
   },
+
   textInput: {
     borderWidth: 1,
     borderColor: "skyblue",
-    width: "70%",
-    marginRight: 8,
+    width: "100%",
     padding: 8,
+  },
+
+  buttons: {
+    marginTop: 16,
+    flexDirection: "row",
+  },
+
+  button: {
+    width: 100,
+    marginHorizontal: 8,
   },
 });
 
