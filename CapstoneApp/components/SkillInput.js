@@ -1,6 +1,5 @@
 import { StyleSheet, View, TextInput, Button, Modal } from "react-native";
 import { useState } from "react";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 function SkillInput(props) {
   const [state, setState] = useState("");
